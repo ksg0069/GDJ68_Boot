@@ -47,6 +47,17 @@ public class NoticeController {
 		return "redirect:./list";
 	}
 	
+	@GetMapping
+	public String getDetail(NoticeVO noticeVO, Model model)throws Exception{
+		
+		BoardVO boardVO = noticeService.getDetail(noticeVO);
+		model.addAttribute("vo", boardVO);
+		
+		return "board/detail";
+		
+		
+	}
+	
 	
 	
 
