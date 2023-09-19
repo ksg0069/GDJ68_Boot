@@ -55,7 +55,6 @@ public class NoticeController {
 		
 		return "board/detail";
 		
-		
 	}
 	
 	
