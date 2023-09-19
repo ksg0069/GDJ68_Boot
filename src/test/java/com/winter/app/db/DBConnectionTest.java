@@ -1,4 +1,4 @@
-package com.winter.app.DBConnectTest;
+package com.winter.app.db;
 
 import static org.junit.jupiter.api.Assertions.*;
 
