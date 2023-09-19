@@ -47,7 +47,7 @@ public class NoticeController {
 		return "redirect:./list";
 	}
 	
-	@GetMapping
+	@GetMapping("detail")
 	public String getDetail(NoticeVO noticeVO, Model model)throws Exception{
 		
 		BoardVO boardVO = noticeService.getDetail(noticeVO);
@@ -56,6 +56,32 @@ public class NoticeController {
 		return "board/detail";
 		
 	}
+	
+	@GetMapping("update")
+	public String setUpdate(NoticeVO noticeVO,Model model)throws Exception{
+		
+		BoardVO boardVO = noticeService.getDetail(noticeVO);
+		model.addAttribute("vo", boardVO);
+		
+		return "board/update";
+	}
+	
+	@PostMapping("update")
+	public String setUpdate(NoticeVO noticeVO)throws Exception{
+		
+		int result = noticeService.setUpdate(noticeVO);
+		
+		return "redirect:./list";
+	}
+	
+	@GetMapping("delete")
+	public String setDelete(NoticeVO noticeVO)throws Exception{
+		
+		int result = noticeService.setDelete(noticeVO);
+		
+		return "redirect:./list";
+	}
+	
 	
 	
 	

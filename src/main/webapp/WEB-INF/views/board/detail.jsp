@@ -68,7 +68,7 @@
 									
 								</div>
 										<a class="btn btn-dark" href="./update?boardNo=${vo.boardNo}"> 수정 </a>
-										<a class="btn btn-dark" href="./delete?num=${vo.boardNo}"> 삭제 </a>
+										<a class="btn btn-dark" href="./delete?boardNo=${vo.boardNo}"> 삭제 </a>
 										
 							</div>
 							
