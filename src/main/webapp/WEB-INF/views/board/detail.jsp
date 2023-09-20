@@ -58,10 +58,23 @@
 															<td>${vo.boardHit}</td>
 														</tr>
 													
-														<td colspan="5">${vo.boardContents}</td>
 												</tbody>
+												<tfoot>
+														<td colspan="5">${vo.boardContents}</td>
+													
+												
+												</tfoot>
 												
 											</table>
+											<div>
+											
+												<c:forEach items="${vo.fileVOs}" var="f">
+													<img alt="" src="../files/${board}/${f.fileName}">
+													<a href="./fileDown?fileNo=${f.fileNo}">${f.oriName}</a>
+												</c:forEach>
+											</div>
+											
+											
 											
 										</div>
 									</div>

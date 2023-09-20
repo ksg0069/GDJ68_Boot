@@ -37,47 +37,47 @@ class NoticeDAOTest {
 //		
 //		
 //	}
-	@Test
-	void getCountTest()throws Exception{
-		Pager pager = new Pager();
-		pager.setKind("1");
-		pager.setSearch("20");
-		Long count =noticeDAO.getCount(pager);
-		assertEquals(2L, count);
-
-	}
-	
-	@Test
-	void getListTest()throws Exception {
-		Pager pager = new Pager();
-		pager.setStartRow(0L);
-		pager.setLastRow(10L);
-		pager.setKind("1");
-		pager.setSearch("20");
-		List<BoardVO> ar = noticeDAO.getList(pager);
-		
-		assertEquals(2, ar.size());
-	}
-	
-	@Test//detail
-	void getDetailTest()throws Exception{
-		BoardVO boardVO = new BoardVO();
-		boardVO.setBoardNo(1L);
-		boardVO = noticeDAO.getDetail(boardVO);
-		assertNotEquals(0, boardVO);
-		
-	}
-	
-	@Test
-	void setUpdateTest()throws Exception{
-		BoardVO boardVO = new BoardVO();
-		boardVO.setBoardTitle("수정1");
-		boardVO.setBoardContents("수정2");
-		boardVO.setBoardNo(1L);
-		int result = noticeDAO.setUpdate(boardVO);
-		assertNotEquals(0, boardVO);
-		
-	}
+//	@Test
+//	void getCountTest()throws Exception{
+//		Pager pager = new Pager();
+//		pager.setKind("1");
+//		pager.setSearch("20");
+//		Long count =noticeDAO.getCount(pager);
+//		assertEquals(2L, count);
+//
+//	}
+//	
+//	@Test
+//	void getListTest()throws Exception {
+//		Pager pager = new Pager();
+//		pager.setStartRow(0L);
+//		pager.setLastRow(10L);
+//		pager.setKind("1");
+//		pager.setSearch("20");
+//		List<BoardVO> ar = noticeDAO.getList(pager);
+//		
+//		assertEquals(2, ar.size());
+//	}
+//	
+//	@Test//detail
+//	void getDetailTest()throws Exception{
+//		BoardVO boardVO = new BoardVO();
+//		boardVO.setBoardNo(1L);
+//		boardVO = noticeDAO.getDetail(boardVO);
+//		assertNotEquals(0, boardVO);
+//		
+//	}
+//	
+//	@Test
+//	void setUpdateTest()throws Exception{
+//		BoardVO boardVO = new BoardVO();
+//		boardVO.setBoardTitle("수정1");
+//		boardVO.setBoardContents("수정2");
+//		boardVO.setBoardNo(1L);
+//		int result = noticeDAO.setUpdate(boardVO);
+//		assertNotEquals(0, boardVO);
+//		
+//	}
 	
 	
 

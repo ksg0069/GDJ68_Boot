@@ -30,7 +30,7 @@
 					<!-- page 실제 내용 -->
 					<div class="row">
 
-						<form action="add" method="post">
+						<form action="add" method="post" enctype="multipart/form-data">
 						
 							<div class="mb-3">
 								<label for="boardTitle">제목</label> 
@@ -45,6 +45,14 @@
 							<div class="mb-3">
 								<label for="boardContents">내용</label> 
 								<textarea rows="" cols="" class="form-control" id="boardContents" name="boardContents" placeholder="내용을 입력해 주세요"></textarea>
+							</div>
+							
+							<div class="mb-3">
+								<input type="file" class="form-control" name="files">
+							</div>
+							
+							<div class="mb-3">
+								<input type="file" class="form-control" name="files" >
 							</div>
 							
 							
