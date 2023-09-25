@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +59,7 @@
 									</div>
 									<!-- row -->
 
-
+								<sec:authorize access="hasRole('ADMIN')">
 									<div class="row">
 										<div class="col-sm-12 col-md-5">
 											<div class="dataTables_info" id="dataTable_info"
@@ -69,6 +70,7 @@
 												</a>
 
 											</div>
+								</sec:authorize>
 										</div>
 										<div class="col-sm-12 col-md-7">
 											<div class="dataTables_paginate paging_simple_numbers"
