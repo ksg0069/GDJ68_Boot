@@ -30,6 +30,7 @@ public class MemberVO extends MemberInfoVO implements UserDetails{
 //	@Pattern(regexp = "(?=.*[0-9])(?=.*[a-z])(?=.*\\\\W)(?=\\\\S+$).{6,12}",message = "비번잘 입력해")
 	private String password;
 	private String passwordCheck;
+	private Boolean enabled;
 	
 	private List<RoleVO> roleVOs;
 	
@@ -64,7 +65,7 @@ public class MemberVO extends MemberInfoVO implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return true;
+		return this.enabled;
 	}
 
 	

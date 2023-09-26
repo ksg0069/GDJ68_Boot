@@ -29,6 +29,10 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 				
+					<div>
+						<h3>${param.message}</h3>
+					</div>
+				
 					<form:form modelAttribute="memberVO" method="post">
 					
 					 <div class="form-group">
@@ -63,5 +67,14 @@
 
 
 	<c:import url="/WEB-INF/views/layout/foot.jsp"></c:import>
+	<script type="text/javascript">
+	 
+		let m ='${param.message}'
+		
+		if(m != ''){
+		alert('${param.message}');
+		}
+	</script>
 </body>
+
 </html>
