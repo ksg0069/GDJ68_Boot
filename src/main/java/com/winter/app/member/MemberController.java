@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,6 +29,12 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@GetMapping("info")
+	public void getInfo()throws Exception{
+	
+		
+	}
 	
 	@GetMapping("update")
 	public void setUpdate(HttpSession session, Model model)throws Exception{
@@ -59,12 +67,24 @@ public class MemberController {
 	}
 	
 	@GetMapping("login")  
-	public void getLogin(@ModelAttribute MemberVO memberVO)throws Exception{
+	public String getLogin(@ModelAttribute MemberVO memberVO)throws Exception{
 	
+		SecurityContext context =  SecurityContextHolder.getContext();
+		String check = context.getAuthentication().getPrincipal().toString();
+		
+		log.info("======= Name {} ======",check);
+		
+		//로그인 후뒤로가기하거나 url쳐도 다시로그인폼으로 안가기 위해
+		if(!check.equals("anonymousUser")) {
+			return "redirect:/";
+		}
+		
+		return "member/login";
+		
 		
 	}
 
-//	@PostMapping("login") //security 사용
+//	@PostMapping("login") //security 사용해서 주석
 //	public String getLogin(MemberVO memberVO,HttpSession session)throws Exception{
 //		
 //	 memberVO = memberService.getLogin(memberVO);

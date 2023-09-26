@@ -33,12 +33,12 @@ public class SecurityFailHandler implements AuthenticationFailureHandler {
 		
 		if(exception instanceof InternalAuthenticationServiceException) {
 			
-			message ="아이디 없다";
+			message ="login.fail.nouser";
 		}
 		
 		if(exception instanceof BadCredentialsException) {
 			
-			message = "비번이 틀림";
+			message = "login.fail.notpassword";
 		}
 		
 		if(exception instanceof AccountExpiredException) {

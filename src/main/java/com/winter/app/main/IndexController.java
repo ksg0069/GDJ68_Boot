@@ -37,12 +37,12 @@ public class IndexController {
 	Authentication b = context.getAuthentication();
 	
 			
-//	log.info("============ GetName: {}============", b.getName());
-//	
-//	log.info("============ Principal: {}============", b.getPrincipal());
-//	
-//	log.info("============ Auth {}============", b.getAuthorities());
-//		
+	log.info("============ GetName: {}============", b.getName());
+	
+	log.info("============ Principal: {}============", b.getPrincipal());
+	
+	log.info("============ Auth {}============", b.getAuthorities());
+		
 		
 		
 		return "index";
