@@ -73,8 +73,13 @@ public class SecurityConfig {
 					.userDetailsService(memberService)
 					.authenticationSuccessHandler(securitySuccessHandler)
 					.and()
+//					.sessionManagement()
+//					.and()
+				.oauth2Login()
+					.userInfoEndpoint()
+					.userService(memberService)
+					.and()
 					
-				.sessionManagement()
 					
 				
 		;
