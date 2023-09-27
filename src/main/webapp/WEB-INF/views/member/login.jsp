@@ -50,6 +50,11 @@
 					  	<form:errors path="password"></form:errors>
 					  </div>
 					  
+					  <div class="form-group">
+					  	<label for="remember">RememberMe</label>
+						<input type="checkbox" id="remember" name="remember-me" class="form-control">
+					  </div>
+					  
 					   
 					  <button type="submit" class="btn btn-primary">Submit</button>
 					  
@@ -77,6 +82,8 @@
 		if(m != ''){
 		alert(m);
 		}
+		
+		history.replaceState({}, null, location.pathname);
 	</script>
 </body>
 

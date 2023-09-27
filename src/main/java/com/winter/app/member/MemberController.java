@@ -1,11 +1,13 @@
 package com.winter.app.member;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -32,29 +34,46 @@ public class MemberController {
 	
 	@GetMapping("info")
 	public void getInfo()throws Exception{
+	 //1. DB에서 사용자 정보를 조회 해서 JSP로 보냄 (주로 사용)
+	 // 2. security 세션에서 꺼내서 조회 가능 
+     //세션에는 수정전에 내용이 있다, 수정되면 시큐리티 세션에 또 적용을 해줘야함
 	
 		
 	}
 	
-	@GetMapping("update")
-	public void setUpdate(HttpSession session, Model model)throws Exception{
-		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-//		memberVO = memberService.getLogin(memberVO);
+//	@GetMapping("update")   db에서 꺼내기
+//	public void setUpdate(HttpSession session, Model model)throws Exception{
+//		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+////		memberVO = memberService.getLogin(memberVO);
+//		
+//		MemberInfoVO memberInfoVO = new MemberInfoVO();
+//		memberInfoVO.setName(memberVO.getName());
+//		memberInfoVO.setBirth(memberVO.getBirth());
+//		memberInfoVO.setEmail(memberVO.getEmail());
+//		
+//		model.addAttribute("memberInfoVO", memberInfoVO);
+//		
+//		
+//	}
+	
+	@GetMapping("update") //시큐리티 세션에서 꺼내기
+	public void setUpdate(@AuthenticationPrincipal MemberVO memberVO , Model model)throws Exception{
 		
-		MemberInfoVO memberInfoVO = new MemberInfoVO();
-		memberInfoVO.setName(memberVO.getName());
-		memberInfoVO.setBirth(memberVO.getBirth());
-		memberInfoVO.setEmail(memberVO.getEmail());
+
 		
-		model.addAttribute("memberInfoVO", memberInfoVO);
+
+		model.addAttribute("memberInfoVO", memberVO);
 		
 		
 	}
 	
 	@PostMapping("update")
-	public void setUpdate(@Valid MemberInfoVO memberInfoVO,BindingResult bindingResult)throws Exception{
+	public String setUpdate(@Valid MemberInfoVO memberInfoVO,BindingResult bindingResult)throws Exception{
+		Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		MemberVO memberVO = (MemberVO) obj;
+		memberVO.setEmail("ksg@gg.com");
 		
-		
+		return "redirect:/";
 
 	}
 	

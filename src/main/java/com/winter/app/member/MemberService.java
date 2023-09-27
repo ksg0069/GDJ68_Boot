@@ -88,6 +88,7 @@ public class MemberService implements UserDetailsService{
 	@Transactional(rollbackFor = Exception.class)
 	public int setJoin(MemberVO memberVO)throws Exception{
 		memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
+		
 		int result = memberDAO.setJoin(memberVO);
 		
 		Map<String , Object> map = new HashMap<>();

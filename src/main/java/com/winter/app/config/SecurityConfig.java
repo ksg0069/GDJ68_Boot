@@ -12,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.winter.app.member.MemberService;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -19,10 +21,9 @@ public class SecurityConfig {
 	@Autowired
 	private SecuritySuccessHandler securitySuccessHandler;
 	
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+	@Autowired
+	private MemberService memberService;
+	
 	
 	@Bean
 	WebSecurityCustomizer webSecurityCustomizer() {
@@ -66,6 +67,13 @@ public class SecurityConfig {
 					.invalidateHttpSession(true)
 					.deleteCookies("JSESSIONID")
 					.and()
+				.rememberMe()
+					.tokenValiditySeconds(60)
+					.key("rememberKey")
+					.userDetailsService(memberService)
+					.authenticationSuccessHandler(securitySuccessHandler)
+					.and()
+					
 				.sessionManagement()
 					
 				

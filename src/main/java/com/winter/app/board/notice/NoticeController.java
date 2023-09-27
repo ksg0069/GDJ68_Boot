@@ -68,6 +68,14 @@ public class NoticeController {
 		return "redirect:./list";
 	}
 	
+//	@GetMapping("addTest")
+//	public String addTest(NoticeVO noticeVO,MultipartFile[] files)throws Exception{
+////		log.info("NoticeVO : {}", noticeVO );
+//		
+//		int result = noticeService.add(noticeVO, files);
+//		return "redirect:./list";
+//	}
+	
 	@GetMapping("detail")
 	public String getDetail(NoticeVO noticeVO, Model model)throws Exception{
 		

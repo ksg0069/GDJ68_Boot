@@ -30,10 +30,11 @@
 				
 					<!-- page 실제 내용 -->
 					<sec:authentication property="principal" var="vo"></sec:authentication> 
-					<div>${vo.username}</div>
-					<div>${vo.password}</div>
-					<div>${vo.email}</div>
-					<div>${vo.birth}</div>
+					<div>
+					<h3>${vo.username}</h3>
+					</div>
+					<div><h3>${vo.email}</h3></div>
+					<div><h3>${vo.birth}</h3></div>
 					
 					
 				</div>
