@@ -32,6 +32,13 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@GetMapping("kakaoLogout")
+	public String kakaoLogout() {
+		
+		return "redirect:../";
+		
+	}
+	
 	@GetMapping("info")
 	public void getInfo()throws Exception{
 	 //1. DB에서 사용자 정보를 조회 해서 JSP로 보냄 (주로 사용)
@@ -77,13 +84,13 @@ public class MemberController {
 
 	}
 	
-	@GetMapping("logout")
-	public String getLogout(HttpSession session)throws Exception {
-		
-		session.invalidate();
-		return "redirect:../";
-		
-	}
+//	@GetMapping("logout") security config에서 처리
+//	public String getLogout(HttpSession session)throws Exception {
+//		
+//		session.invalidate();
+//		return "redirect:../";
+//		
+//	}
 	
 	@GetMapping("login")  
 	public String getLogin(@ModelAttribute MemberVO memberVO)throws Exception{

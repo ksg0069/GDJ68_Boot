@@ -34,6 +34,8 @@ public class MemberVO extends MemberInfoVO implements UserDetails, OAuth2User{
 	private String passwordCheck;
 	private Boolean enabled;
 	
+	private String accessToken;
+	
 	private List<RoleVO> roleVOs;
 	
 	private Map<String, Object> attributes;

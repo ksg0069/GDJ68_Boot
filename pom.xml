@@ -19,6 +19,13 @@
 	</properties>
 	
 	<dependencies>
+		
+		<!-- WebClient-->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+
 		<!--social login-->
 		<dependency>
 		<groupId>org.springframework.boot</groupId>
